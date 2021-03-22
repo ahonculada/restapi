@@ -175,7 +175,7 @@ func getBooks(w http.ResponseWriter, r *http.Request) {
 // Get all Cases
 func getCases(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	w.Header().Set("Access-Control_Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	json.NewEncoder(w).Encode(cases)
 }
 
@@ -196,7 +196,7 @@ func getBook(w http.ResponseWriter, r *http.Request) {
 // Get a single Case
 func getCase(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	params := mux.Vars(r) // get params
+	//params := mux.Vars(r) // get params
 	// loop through cases and match dob, identification_number, full_name
 	// for _, item := range cases {}
 }
