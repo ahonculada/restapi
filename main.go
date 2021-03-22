@@ -192,6 +192,14 @@ func getBook(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(&Book{})
 }
 
+// Get a single Case
+func getCase(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(r) // get params
+	// loop through cases and match dob, identification_number, full_name
+	// for _, item := range cases {}
+}
+
 // Create a New Book
 func createBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -241,11 +249,6 @@ func deleteBook(w http.ResponseWriter, r *http.Request) {
 func main() {
 	// Init Router
 	r := mux.NewRouter()
-
-	// Mock Data
-	books = append(books, Book{ID: "1", Isbn: "1222343", Title: "Book One", Author: &Author{Firstname: "Yawn", Lastname: "Though"}})
-	books = append(books, Book{ID: "2", Isbn: "1888843", Title: "Book Two", Author: &Author{Firstname: "Yan", Lastname: "Nepomniachtchi"}})
-	books = append(books, Book{ID: "3", Isbn: "2839343", Title: "Book Three", Author: &Author{Firstname: "Hikaru", Lastname: "Nakamura"}})
 
 	// Mock Data
 	cases = append(cases,
