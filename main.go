@@ -175,6 +175,7 @@ func getBooks(w http.ResponseWriter, r *http.Request) {
 // Get all Cases
 func getCases(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Access-Control_Allow-Origin", "*")
 	json.NewEncoder(w).Encode(cases)
 }
 
