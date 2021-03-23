@@ -176,7 +176,8 @@ func getBooks(w http.ResponseWriter, r *http.Request) {
 func getCases(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
-	json.NewEncoder(w).Encode(cases[0])
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	json.NewEncoder(w).Encode(cases)
 }
 
 // Get single Book
@@ -279,7 +280,7 @@ func main() {
 
 	// Route Handlers / Endpoints
 	// r.HandleFunc("/api/books", getBooks).Methods("GET")
-	r.HandleFunc("/matter/api/basic_case_info", getCases).Methods("GET")
+	r.HandleFunc("/matter/api/basic_case_info", getCases).Methods("GET", "OPTIONS")
 	//r.HandleFunc("/api/books/{id}", getBook).Methods("GET")
 	//r.HandleFunc("/matter/api/basic_case_info/{id}", getCase).Methods("GET")
 	//r.HandleFunc("/api/books", createBook).Methods("POST")
